@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Document</title>
+    <script>
+        function newUser(){
+            var first = $("#firstName").val();
+            var last = $("#lastName").val();
+            var des = $("textarea").val();
+            $('.rightbox').append(
+                '<div class="card"><div class="frontside"><h2>'+first+' '+last+
+                '</h2><br><br>(Click for Description)</div><div class="backside">'+des+'</div>');
+        }
+        
+        $(document).ready(function(){
+            $("form").submit(function(){
+                newUser();
+                this.reset();
+                return false
+
+            })
+        })
+
+        $(document).on('click','.card',function(){
+            $(this).children().toggle();
+                    })
+
+        $(document).on('DOMNodeInserted','.card',function(){
+            $(this).children(".backside").toggle();
+        })
+    </script>
+</head>
+<body>
+    <div class="leftbox">
+        <h1>Add User</h1>
+        <form action="process.php" method="post">
+            <span>First Name:<input type="text" name="firstName" id="firstName"></span>
+            <span>Last Name:<input type="text" name="lastName" id="lastName"></span>
+            <span>Description:<br><textarea name="description"></textarea></span>
+            <input type="submit" id="addUser" value="Add User">
+        </form>
+    </div>
+    <div class="rightbox">
+    </div>
+</body>
+</html>
