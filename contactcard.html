@@ -18,18 +18,22 @@
         $(document).ready(function(){
             $("form").submit(function(){
                 newUser();
-                this.reset();
+                this.reset();   //Make a new card, then reset all the form's fields. 
                 return false
-
+                                //Note to self: figure out a way to disallow blank fields...
             })
         })
 
         $(document).on('click','.card',function(){
-            $(this).children().toggle();
+            $(this).children().toggle();            // Toggle the front and back sides of the card. 
                     })
 
-        $(document).on('DOMNodeInserted','.card',function(){
-            $(this).children(".backside").toggle();
+        $(document).on('DOMNodeInserted','.card',function(){   //Invoke this function whenever a card is created. 
+            $(this).children(".backside").toggle();  //Toggle back of the card off. 
+        })
+
+        $(document).on('contextmenu','.card',function(){
+            $(this).remove();
         })
     </script>
 </head>
