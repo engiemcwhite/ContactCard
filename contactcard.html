@@ -12,7 +12,7 @@
             var des = $("textarea").val();
             $('.rightbox').append(
                 '<div class="card"><div class="frontside"><h2>'+first+' '+last+
-                '</h2><br><br>(Click for Description)</div><div class="backside">'+des+'</div>');
+                '</h2><br><br>(Click for Description)</div><div class="backside">'+des+'</div></div>');
         }
         
         $(document).ready(function(){
@@ -28,9 +28,9 @@
             $(this).children().toggle();            // Toggle the front and back sides of the card. 
                     })
 
-        $(document).on('DOMNodeInserted','.card',function(){   //Invoke this function whenever a card is created. 
+       /* $(document).on('DOMNodeInserted','.card',function(){   //Invoke this function whenever a card is created. 
             $(this).children(".backside").toggle();  //Toggle back of the card off. 
-        })
+        }) */
 
         $(document).on('contextmenu','.card',function(){
             $(this).remove();
